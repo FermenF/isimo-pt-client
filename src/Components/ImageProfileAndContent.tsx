@@ -24,12 +24,13 @@ const ImageProfileAndContent: React.FC<ImageProfileAndContentProps> = ({ onlyIma
                     <div className="ml-1">
                         <h6 className="font-semibold">{capitalizeText(title)}</h6>
                         {
-                            !timeAgo ? (
-                                <select id="countries" defaultValue={1} className="bg-gray-50 border h-9 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-white focus:border-white block w-full">
-                                    <option value={1}>Public</option>
-                                    <option value={2}>Only Me</option>
-                                </select>
-                            ) : (
+                            // !timeAgo ? (
+                                // <select id="countries" defaultValue={1} className="bg-gray-50 border h-9 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-white focus:border-white block w-full">
+                                //     <option value={1}>Public</option>
+                                //     <option value={2}>Only Me</option>
+                                // </select>
+                            // ) 
+                            timeAgo && (
                                 <div className="flex text-gray-500 items-center">
                                     <span className="text-sm mr-1">
                                         <FormattedDate dateTime={timeAgo} />

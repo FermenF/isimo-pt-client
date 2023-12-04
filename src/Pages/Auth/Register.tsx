@@ -46,7 +46,10 @@ const Register: React.FC = () => {
         try {
             const result = await authRegister({ name, email, password, password_confirmation: confirmPassword });
             setResultMessage({ type: 'success', message: result.message });
-            setName(""); setEmail(""); setPassword(""); setConfirmPassword("");
+            setName(""); 
+            setEmail(""); 
+            setPassword(""); 
+            setConfirmPassword("");
         } catch (error) {
             setResultMessage({ type: 'danger', message: getMessageError(error) });
         }
@@ -66,17 +69,17 @@ const Register: React.FC = () => {
                     )
                 }
                 <Input
-                    inputData={{ id: 'name', type: 'text', placeholder: 'John Doe', required: true }}
+                    inputData={{ id: 'name', type: 'text', placeholder: 'John Doe', required: true, value: name }}
                     labelData={{ text: 'Ingresa tu nombre' }}
                     handleChange={handleChangeName}
                 />
                 <Input
-                    inputData={{ id: 'email', type: 'email', placeholder: 'johndoe@email.com', required: true }}
+                    inputData={{ id: 'email', type: 'email', placeholder: 'johndoe@email.com', required: true, value: email  }}
                     labelData={{ text: 'Ingresa tu correo electronico' }}
                     handleChange={handleChangeEmail}
                 />
                 <Input
-                    inputData={{ id: 'password', type: 'password', placeholder: '••••••••', required: true }}
+                    inputData={{ id: 'password', type: 'password', placeholder: '••••••••', required: true, value: password }}
                     labelData={{ text: 'Ingresa tu contraseña' }}
                     handleChange={handleChangePassword}
                 />
@@ -92,7 +95,7 @@ const Register: React.FC = () => {
                     )
                 }
                 <Input
-                    inputData={{ id: 'password_confirmation', type: 'password', placeholder: '••••••••', required: true }}
+                    inputData={{ id: 'password_confirmation', type: 'password', placeholder: '••••••••', required: true, value: confirmPassword }}
                     labelData={{ text: 'Confirmar contraseña' }}
                     handleChange={handleChangeConfirmPassword}
                 />

@@ -3,6 +3,8 @@ import App from "@components/layouts/App";
 import Home from "@pages/Home/Home";
 import Login from "@pages/Auth/Login";
 import Register from "@pages/Auth/Register";
+import Users from "@pages/User/Users";
+import UserShow from "@pages/User/UserShow";
 
 export const routes = createBrowserRouter([
     {
@@ -12,6 +14,14 @@ export const routes = createBrowserRouter([
             {
                 index: true,
                 Component: Home
+            },
+            {
+                path: 'users',
+                Component: Users,
+            },
+            {
+                path: 'users/:id',
+                Component: UserShow,
             }
         ]    
     },
@@ -22,5 +32,5 @@ export const routes = createBrowserRouter([
     {
         path: 'register',
         Component: Register,
-    }
+    },
 ]);

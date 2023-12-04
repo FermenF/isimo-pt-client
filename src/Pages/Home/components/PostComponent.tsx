@@ -2,14 +2,19 @@ import React, { useState } from 'react';
 import { Post } from '@interfaces/post.interface';
 import ImageProfileAndContent from '@components/ImageProfileAndContent';
 import PostImages from './PostImages';
+import { User } from '@interfaces/user.interface';
 
 interface PostPros {
     post: Post;
+    userData?: User;
 }
 
-const PostComponent: React.FC<PostPros> = ({ post }) => {
+const PostComponent: React.FC<PostPros> = ({ post, userData }) => {
 
-    const { user } = post;
+    let { user } = post;
+    if(!user && userData){
+        user = userData;
+    }
     
     const [openPostModal, setOpenPostModal] = useState(false); 
 
@@ -19,6 +24,7 @@ const PostComponent: React.FC<PostPros> = ({ post }) => {
     
     return (
         <div className="pb-5" id={ String(post.id) }>
+            
             <div className='flex justify-between items-center pt-5 px-5'>
                 <ImageProfileAndContent
                     onlyImage={ false }

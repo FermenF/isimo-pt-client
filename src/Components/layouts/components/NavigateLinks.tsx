@@ -8,10 +8,16 @@ interface Link {
 
 const NavigateLinks:React.FC = () => {
 
-    const links:Link[] = [{
-        title: "Home",
-        url: "/"
-    }];
+    const links:Link[] = [
+        {
+            title: "Publicaciones",
+            url: "/"
+        },
+        {
+            title: "Usuarios",
+            url: "/users"
+        }
+    ];
 
     return (
         <>

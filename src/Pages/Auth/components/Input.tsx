@@ -9,6 +9,7 @@ interface InputProps {
         type: 'email' | 'password' | 'text';
         placeholder: string;
         required: boolean;
+        value: any;
     },
     handleChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
@@ -20,7 +21,8 @@ const Input: React.FC<InputProps> = ({ labelData, inputData, handleChange}) => {
             <input 
                 type={ inputData.type } 
                 name={ inputData.id } 
-                id={ inputData.id } 
+                id={ inputData.id }
+                value={ inputData.value }
                 placeholder={ inputData.placeholder } 
                 required={ inputData.required }
                 onChange={ handleChange }
