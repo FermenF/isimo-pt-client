@@ -17,7 +17,7 @@ const Login: React.FC = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");
-    const [remember, setRemember] = useState();
+    // const [remember, setRemember] = useState();
 
     const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value)
@@ -56,12 +56,12 @@ const Login: React.FC = () => {
                     )
                 }
                 <Input 
-                    inputData={{ id: 'email', type: 'email', placeholder: 'johndoe@email.com', required: true }} 
+                    inputData={{ id: 'email', type: 'email', placeholder: 'johndoe@email.com', value: email, required: true }} 
                     labelData={{ text: 'Ingresa tu correo electronico' }}
                     handleChange={ handleChangeEmail }
                 />
                 <Input 
-                    inputData={{ id: 'password', type: 'password', placeholder: '••••••••', required: true }} 
+                    inputData={{ id: 'password', type: 'password', placeholder: '••••••••', value: password, required: true }} 
                     labelData={{ text: 'Ingresa tu contraseña' }}
                     handleChange={ handleChangePassword }
                 />
