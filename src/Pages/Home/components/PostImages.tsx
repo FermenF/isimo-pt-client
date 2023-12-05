@@ -1,3 +1,4 @@
+import { apiAssets } from "@config/api";
 import { PostImage } from "@interfaces/post.interface";
 import React from "react";
 
@@ -47,8 +48,8 @@ const TwoImage: React.FC<Image> = ({ image }) => {
         const style = "object-cover h-[38rem]";
         return (
             <div className="flex">
-                <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-1/2 mr-0.5`} />
-                <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 ml-0.5`} />
+                <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-1/2 mr-0.5`} loading="lazy"/>
+                <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 ml-0.5`} loading="lazy"/>
             </div>
         );
     }
@@ -59,10 +60,10 @@ const ThreeImage: React.FC<Image> = ({ image }) => {
         const style = "object-cover h-[16rem]";
         return (
             <div>
-                <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-full`} />
+                <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-full`} loading="lazy"/>
                 <div className="flex mt-1">
-                    <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 mr-0.5`} />
-                    <img src={pathImage(image[2].path+'/'+image[2].url)} className={`${style} w-1/2 ml-0.5`} />
+                    <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 mr-0.5`} loading="lazy"/>
+                    <img src={pathImage(image[2].path+'/'+image[2].url)} className={`${style} w-1/2 ml-0.5`} loading="lazy"/>
                 </div>
             </div>
         );
@@ -75,12 +76,12 @@ const FourImage: React.FC<Image> = ({ image }) => {
         return (
             <div>
                 <div className="flex">
-                    <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-1/2 mr-0.5`} />
-                    <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 ml-0.5`} />
+                    <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-1/2 mr-0.5`} loading="lazy"/>
+                    <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 ml-0.5`} loading="lazy"/>
                 </div>
                 <div className="flex mt-1">
-                    <img src={pathImage(image[2].path+'/'+image[2].url)} className={`${style} w-1/2 mr-0.5`} />
-                    <img src={pathImage(image[3].path+'/'+image[3].url)} className={`${style} w-1/2 ml-0.5`} />
+                    <img src={pathImage(image[2].path+'/'+image[2].url)} className={`${style} w-1/2 mr-0.5`} loading="lazy"/>
+                    <img src={pathImage(image[3].path+'/'+image[3].url)} className={`${style} w-1/2 ml-0.5`} loading="lazy"/>
                 </div>
             </div>
         );
@@ -93,15 +94,15 @@ const FiveImage: React.FC<Image> = ({ image, quantity }) => {
         return (
             <div>
                 <div className="flex">
-                    <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-1/2 mr-0.5`} />
-                    <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 ml-0.5`} />
+                    <img src={pathImage(image[0].path+'/'+image[0].url)} className={`${style} w-1/2 mr-0.5`} loading="lazy"/>
+                    <img src={pathImage(image[1].path+'/'+image[1].url)} className={`${style} w-1/2 ml-0.5`} loading="lazy"/>
                 </div>
                 <div className="flex mt-1">
-                    <img src={pathImage(image[2].path+'/'+image[2].url)} className={`${style} w-1/3 mr-0.5`} />
-                    <img src={pathImage(image[3].path+'/'+image[3].url)} className={`${style} w-1/3 mx-0.5`} />
+                    <img src={pathImage(image[2].path+'/'+image[2].url)} className={`${style} w-1/3 mr-0.5`} loading="lazy"/>
+                    <img src={pathImage(image[3].path+'/'+image[3].url)} className={`${style} w-1/3 mx-0.5`} loading="lazy"/>
                     <div className='w-1/3 ml-0.5'>
                         <div className='relative'>
-                            <img src={pathImage(image[4].path+'/'+image[4].url)} className={`${style}`} />
+                            <img src={pathImage(image[4].path+'/'+image[4].url)} className={`${style}`} loading="lazy"/>
                             <div className='absolute top-1/3 left-1/3  font-bold text-3xl text-white shadow-md'>
                                 {
                                     quantity !== 0 && (
@@ -118,6 +119,6 @@ const FiveImage: React.FC<Image> = ({ image, quantity }) => {
 };
 
 function pathImage(fileName: string): string {
-    return `http://localhost:8000/storage/${fileName}`;
+    return `${ apiAssets }/${fileName}`;
 }
 export default PostImages;

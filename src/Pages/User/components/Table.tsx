@@ -11,6 +11,7 @@ interface TableProps {
 }
 
 const Table: React.FC<TableProps> = ({ users }) => {
+
     return (
         <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
             <table className="w-full text-sm text-left rtl:text-right text-gray-500">
@@ -28,29 +29,40 @@ const Table: React.FC<TableProps> = ({ users }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.map((user) => (
-
-                        <tr className="bg-white border-b" key={user.id}>
-                            <td scope="row" className="px-6 py-4 flex items-center justify-start">
-                                <div>
-                                    <ImageProfileAndContent img={user.photo} />
-                                </div>
-                                <div>
-                                    <Link to={`/users/${user.id}`}>
-                                        <b className="ml-3 text-blue-700">{capitalizeText(user.name)}</b>
-                                    </Link>
-                                </div>
-                            </td>
-                            <td className="px-6 py-4">{user.email}</td>
-                            <td className="px-6 py-4">
-                                <div>{formattDateTime(user.created_at)}</div>
-                                <div className="flex justify-start items-center">
-                                    <small className="mr-2">Hace:</small>{" "}
-                                    {<FormattedDate dateTime={user.created_at} />}
-                                </div>
-                            </td>
-                        </tr>
-                    ))}
+                    {
+                        users.length > 0 ? (
+                            users.map((user) => (
+                                <tr className="bg-white border-b" key={user.id}>
+                                    <td scope="row" className="px-6 py-4 flex items-center justify-start">
+                                        <div className="flex items-center justify-start w-52">
+                                            <div>
+                                                <ImageProfileAndContent img={user.photo} />
+                                            </div>
+                                            <div>
+                                                <Link to={`/users/${user.id}`}>
+                                                    <b className="ml-3 text-blue-700">{capitalizeText(user.name)}</b>
+                                                </Link>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td className="px-6 py-4">{user.email}</td>
+                                    <td className="px-6 py-4">
+                                        <div>{formattDateTime(user.created_at)}</div>
+                                        <div className="flex justify-start items-center w-24">
+                                            <small className="mr-2">Hace:</small>{" "}
+                                            {<FormattedDate dateTime={user.created_at} />}
+                                        </div>
+                                    </td>
+                                </tr>
+                            ))
+                        ): (
+                            <tr>
+                                <td colSpan={3}>
+                                    Sin usuarios para mostrar
+                                </td>
+                            </tr>
+                        )
+                    }
                 </tbody>
             </table>
         </div>

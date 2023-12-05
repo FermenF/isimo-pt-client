@@ -62,7 +62,7 @@ const CreatePostModal: React.FC<CreatePostModalProps> = ({ userName, openCreateM
     return (
         <>
             <div tabIndex={-1} aria-hidden="true" className={`${openCreateModal ? 'flex' : 'hidden'} overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-40 justify-center items-center w-full md:inset-0 h-[calc(100%)] max-h-full`} style={{ background: 'rgba(169, 169, 169, 0.7)' }}>
-                <div className="relative p-4 w-full md:w-3/4 lg:w-2/4 xl:w-1/4 max-w-2xl max-h-full">
+                <div className="relative p-4 w-full md:w-3/4 lg:w-2/4 xl:w-1/4 max-w-2xl ">
                     <div className="relative bg-white rounded-lg shadow dark:bg-gray-700">
                         <form onSubmit={handleSubmit} encType="multipart/form-data">
                             <div className="flex items-center justify-center p-4 md:p-5 border-b rounded-t dark:border-gray-600">
